@@ -17,23 +17,26 @@
 </head>
 <body>
    <script type="text/javascript">
-    var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
-                14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
-                24, 18, 25, 9, 3 ];
-            // d3.select("body").append("p").text("New paragraph!");
-            // d3.select("body").selectAll("p")
-            //     .data(dataset)
-            //     .enter()
-            //     .append("p")
-            //     .text(function(d) { return d; })
-            //     .style("color", function(d) {
-            //         if (d > 15) {   //Threshold of 15
-            //             return "blue";
-            //         } else {
-            //             return "black";
-            //         }
-            //     });
+    var dataset = [ 25, 7, 5, 26,  ];
+    
+    d3.select("body").append("p").text("------------------");
+            d3.select("body").append("p").text("Fucking NUMBERS!!!");
+            d3.select("body").selectAll("p")
+                .data(dataset)
+                .enter()
+                .append("p")
+                .text(function(d) { return d + " bottle of beer on the wall"; })
+                .style("color", function(d) {
+                    if (d > 15) {   //Threshold of 15
+                        return "blue";
+                    } else {
+                        return "black";
+                    }
+                });
 
+
+            d3.select("body").append("p").text("------------------");
+            d3.select("body").append("p").text("Fucking Rectangles!!!");
             var dataset = [];                         //Initialize empty array
             for (var i = 0; i < 25; i++) {            //Loop 25 times
                 var newNumber = Math.random() * 30;   //New random number (0-30)
@@ -45,7 +48,7 @@
                 .append("div")
                 .attr("class", "bar")
                 .style("height", function(d) {
-                    return d*10 + "px";
+                    return d*5 + "px";
                 })
                 .style("background-color", function(d) {
                     if (d > 15) {   //Threshold of 15
@@ -54,6 +57,38 @@
                         return "black";
                     }
                 });
+
+            d3.select("body").append("p").text("------------------");
+            d3.select("body").append("p").text("Fucking Circles!!!");
+            //Width and height
+            var w = 500;
+            var h = 50;
+            var dataset = [];                         //Initialize empty array
+            for (var i = 0; i < 25; i++) {            //Loop 25 times
+                var newNumber = Math.random() * 25 ;   //New random number (0-30)
+                dataset.push(newNumber);              //Add new number to array
+            }
+            var svg = d3.select("body")
+                        .append("svg")
+                        .attr("width", w)   // <-- Here
+                        .attr("height", h); // <-- and here!
+            var circles = svg.selectAll("circle")
+                            .data(dataset)
+                            .enter()
+                            .append("circle");
+
+            circles.attr("cx", function(d, i) {
+                                    return (i * 50) + 25;
+                                })
+            .attr("cy", h/2)
+            .attr("r", function(d) {
+                            return d;
+                    }
+            ).attr("fill", "yellow")
+            .attr("stroke", "orange")
+            .attr("stroke-width", function(d) {
+                return d/2;
+            });
    </script>
    
 </body>

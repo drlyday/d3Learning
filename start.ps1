@@ -1,2 +1,2 @@
-cd C:\D3stuff\codes
+cd .\codes
 python -m SimpleHTTPServer 8888
