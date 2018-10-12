@@ -1,2 +1,2 @@
 cd .\codes
-python -m SimpleHTTPServer 8888
+python -m http.server 8888
